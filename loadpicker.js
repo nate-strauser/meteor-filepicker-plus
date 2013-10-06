@@ -2,7 +2,9 @@ loadPicker = function(key, callback) {
   //Functions to run after the script tag has loaded
   var filepickerLoadCallback = function(){
       filepicker.setKey(key);
-      callback();
+
+      if (typeof callback !== 'undefined' && callback !== null)
+          callback();
   };
 
   //If the script doesn't load
