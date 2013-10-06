@@ -1,4 +1,4 @@
-# Filepicker.io on demand package for Meteor
+# Filepicker.io on demand package for Meteor (forked from loadpicker)
 
 Package to use Filepicker in Meteor, loads on demand, optional callback.
 

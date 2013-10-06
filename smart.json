@@ -1,9 +1,9 @@
 {
-  "name": "loadpicker",
-  "description": "filepicker.io script repackaged for Meteor",
-  "homepage": "https://github.com/guido4000/loadpicker",
-  "author": "Guido Hoermann <guido4000@gmail.com>",
-  "version": "1.0.1",
-  "git": "https://github.com/guido4000/loadpicker.git",
+  "name": "impicker",
+  "description": "filepicker.io script repackaged for Meteor (forked from loadpicker)",
+  "homepage": "https://github.com/wulx/impicker",
+  "author": "Gurdy Woo <gurdy.woo@gmail.com>",
+  "version": "1.0.0",
+  "git": "https://github.com/wulx/impicker.git",
   "packages": {}
 }

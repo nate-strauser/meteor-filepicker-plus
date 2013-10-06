@@ -1,5 +1,5 @@
 Package.describe({
-  summary: "filepicker.io script repackaged for Meteor"
+  summary: "filepicker.io script repackaged for Meteor (forked from loadpicker)"
 });
 
 Package.on_use(function (api) {
