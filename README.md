@@ -10,7 +10,7 @@ Package to use Filepicker in Meteor, loads on demand, optional callback.
 
 2. Add package
 
-        mrt add loadpicker
+        mrt add impicker
  
 ## A. How to use with upload button
 
