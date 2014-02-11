@@ -3,7 +3,7 @@ loadPicker = function(key, callback) {
   var filepickerLoadCallback = function() {
     filepicker.setKey(key);
 
-    if (Object.prototype.toString.call(callback) === "[object Function")
+    if (Object.prototype.toString.call(callback) === "[object Function]")
       callback();
   };
 
