@@ -26,8 +26,7 @@ mrt add filepicker-plus
   }
 }
 ```
-
-if you specify an api key, the call to `loadFilePicker` does not need a key arguement, it will read from the settings
+if you specify an api key, the call to `loadFilePicker()` does not need a key arguement, it will read from the settings
 
 
 ## On demand loading
@@ -35,7 +34,8 @@ if you specify an api key, the call to `loadFilePicker` does not need a key argu
 Load once for your whole application at startup or as needed from template created or rendered functions
 
 ```
-loadFilePicker();
+loadFilePicker('<YOUR KEY>');
+//can leave out key if its in settings
 
 ```
 You can call this over and over again.  It will detect if filepicker has already been loaded, only loading the script when needed.
@@ -45,12 +45,15 @@ You can call this over and over again.  It will detect if filepicker has already
 if you have specific routes that need to use filepicker, you can load them for just these routes
 ```
 Router.onBeforeAction(function(){
-  loadFilePicker();
+  loadFilePicker('<YOUR KEY>');
+  //can leave out key if its in settings
 },{only:['<ROUTE NAME>','<ROUTE NAME>']});
 ```
 
 ## Image Url Helper
 If you have a paid filepicker plan, you can use this helper to resize images on demand.  See https://developers.inkfilepicker.com/docs/web/#inkblob-images
+
+if you set up a CDN with filepicker (https://developers.inkfilepicker.com/docs/cdn/) and you set the `cdn_domain` setting, the urls returned will be to your cdn ("//<CDN DOMAIN>/api/file/<FILE ID>").  If not, they will be filepicker.com urls (("//www.filepicker.com/api/file/<FILE ID>"))
 
 size an image
 ```
