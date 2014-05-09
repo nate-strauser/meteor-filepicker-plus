@@ -53,7 +53,7 @@ Router.onBeforeAction(function(){
 ## Image Url Helper
 If you have a paid filepicker plan, you can use this helper to resize images on demand.  See https://developers.inkfilepicker.com/docs/web/#inkblob-images
 
-if you set up a CDN with filepicker (https://developers.inkfilepicker.com/docs/cdn/) and you set the `cdn_domain` setting, the urls returned will be to your cdn ("//<CDN DOMAIN>/api/file/<FILE ID>").  If not, they will be filepicker.com urls (("//www.filepicker.com/api/file/<FILE ID>"))
+if you set up a CDN with filepicker (https://developers.inkfilepicker.com/docs/cdn/) and you set the `cdn_domain` setting, the urls returned will be to your cdn. `//<CDN DOMAIN>/api/file/<FILE ID>`  If not, they will be filepicker.com urls `//www.filepicker.com/api/file/<FILE ID>`
 
 size an image
 ```
