@@ -1,109 +1,77 @@
-# Filepicker.io on demand package for Meteor (forked from loadpicker)
+# Ink Filepicker on demand package with helpers for Meteor
 
-Package to use Filepicker in Meteor, loads on demand, optional callback.
+Package to use Filepicker in Meteor, loads on demand, optional callback.  See meteor cookbook filepicker reciepe for more details and examples.
 
 ## How to install
 
-1. Install Meteorite (if not already installed)
+Install Meteorite (if not already installed)
+```
+npm install -g meteorite
+```
 
-        npm install -g meteorite
+Add package
+```
+mrt add filepicker-plus
+```
 
-2. Add package
-
-        mrt add impicker
- 
-## A. How to use with upload button
-
-1. Set your Filepicker key on client JS
-
-        var key = "your filepicker key";
-
-
-2. Call the script on demand from template.yourTemplate.created or template.yourTemplate.rendered
-
-        loadPicker(key);
-
-
-3. Call Filepicker from template.yourTemplate.events with a click or submit event
-
-        filepicker.pick();
-
-
-#### Sample integration
+## Using Meteor.settings
 
 ```
-if (Meteor.isClient) {
-  Session.set("widgetSet", false);
-  var key = "xxxxxxxxxxxxxxxxx";
-
-  Template.home.rendered = function ( ) { 
-    if (!Session.get("widgetSet")) {  
-      loadPicker(key);
+{
+  "public" : {
+    "filepicker":{
+      "key":"<YOUR API KEY>",
+      "cdn_domain":"<YOUR CDN DOMAIN>"
     }
-  };
-
-  Template.home.events({
-    'click button' : function () {
-      filepicker.pick();
-    }
-  });
+  }
 }
 ```
 
-## B. How to use with drop widget or drop area
-
-1. Set your Filepicker key on client JS
-
-        var key = "your filepicker key";
- 
-2. Call the script on demand from template.yourTemplate.created or template.yourTemplate.rendered with callback
-      
-        loadPicker(key, callback);
- 
-3. Call Filepicker from template.yourTemplate.events and include callback function to create widget or drop pane
-  
-        var cb = function () {
-          filepicker.constructWidget(document.getElementById('constructed-widget'));
-          filepicker.makeDropPane($('#exampleDropPane')[0], { });
-        };
-      
-        loadPicker(key, cb);
+if you specify an api key, the call to `loadFilePicker` does not need a key arguement, it will read from the settings
 
 
-#### Sample integration with widget or drop pane and callback
+## On demand loading
+
+Load once for your whole application at startup or as needed from template created or rendered functions
 
 ```
-if (Meteor.isClient) {
-  Session.set("widgetSet", false);
-  var key = "insert key here";
+loadFilePicker();
 
-Template.hello.rendered = function () {
-    if (!Session.get("widgetSet")) {  
-      var cb = function () {
-        filepicker.constructWidget(document.getElementById('constructed-widget'));
-        filepicker.makeDropPane($('#exampleDropPane')[0], { });
-      };
-      loadPicker(key, cb);
-    }
-  };
+```
+You can call this over and over again.  It will detect if filepicker has already been loaded, only loading the script when needed.
+
+## Iron Router Integration
+
+if you have specific routes that need to use filepicker, you can load them for just these routes
+```
+Router.onBeforeAction(function(){
+  loadFilePicker();
+},{only:['<ROUTE NAME>','<ROUTE NAME>']});
 ```
 
-HTML (include the type tag for the widget!):
+## Image Url Helper
+If you have a paid filepicker plan, you can use this helper to resize images on demand.  See https://developers.inkfilepicker.com/docs/web/#inkblob-images
 
-    <h1>Widget</h1>
-      <div id="constructed-widget" value="empty" type="filepicker-dragdrop" style="display: none;">
-      </div>
-    <h1>Drop Pane</h1>
-      <div id="exampleDropPane">Drop Here!</div>
-      <div><pre id="localDropResult"></pre></div>
-    
-CSS for drop pane
-  
-    #exampleDropPane {
-      text-align: center;
-      padding: 20px;
-      background-color: #F6F6F6;
-      border: 1px dashed #666;
-      border-radius: 6px;
-      margin-bottom: 20px;
-    }
+size an image
+```
+{{filepickerIdToImageUrl myImageId h=200 w=200}}
+```
+
+crop an image to thumbnail size and align to faces
+```
+{{filepickerIdToImageUrl myImageId h=75 w=75 align='faces' fit='crop'}}
+```
+
+size an image, optionally returning a placehold.it url if `myImageId` is null
+```
+{{filepickerIdToImageUrl myImageId h=200 w=200 placehold_it='200x200&text=placeholder'}}
+```
+
+size an image, optionally returning url if `myImageId` is null
+```
+{{filepickerIdToImageUrl myImageId h=200 w=200 placeholder_url='/images/placholder.jpg'}}
+```
+
+
+### Credits
+Forked from impicker
