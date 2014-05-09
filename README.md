@@ -32,12 +32,11 @@ if you specify an api key, the call to `loadFilePicker()` does not need a key ar
 ## On demand loading
 
 Load once for your whole application at startup or as needed from template created or rendered functions
-
 ```
 loadFilePicker('<YOUR KEY>');
 //can leave out key if its in settings
-
 ```
+
 You can call this over and over again.  It will detect if filepicker has already been loaded, only loading the script when needed.
 
 ## Iron Router Integration
@@ -59,7 +58,6 @@ size an image
 ```
 {{filepickerIdToImageUrl myImageId h=200 w=200}}
 ```
-
 crop an image to thumbnail size and align to faces
 ```
 {{filepickerIdToImageUrl myImageId h=75 w=75 align='faces' fit='crop'}}
@@ -75,6 +73,7 @@ size an image, optionally returning url if `myImageId` is null
 {{filepickerIdToImageUrl myImageId h=200 w=200 placeholder_url='/images/placholder.jpg'}}
 ```
 
+All properties passed to the helper except for `placehold_it` and `placeholder_url` will be turned into a query string, so you can use the full options of the api (h, w, fit, format, quality, rotate, watermark, etc).
 
 ### Credits
 Forked from impicker
