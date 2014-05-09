@@ -38,7 +38,7 @@ loadFilePicker = function(key, callback){
   }
 };
 
-UI.registerHelper("imageUrlFromId", function(imageId, options) {
+UI.registerHelper("filepickerIdToImageUrl", function(imageId, options) {
   var url = "";
   if(!imageId && options.hash.placehold_it){
     url = "//placehold.it/"+options.hash.placehold_it; 
