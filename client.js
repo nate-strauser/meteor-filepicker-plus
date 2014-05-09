@@ -56,3 +56,15 @@ UI.registerHelper("filepickerIdToImageUrl", function(imageId, options) {
   }
   return url;
 });
+
+UI.registerHelper("filepickerIdToUrl", function(filepickerId) {
+  var url = "";
+  if(filepickerId){
+    var domain = "www.filepicker.io";
+    if(Meteor.settings && Meteor.settings.public && Meteor.settings.public.filepicker && Meteor.settings.public.filepicker.cdn_domain)
+      domain = Meteor.settings.public.filepicker.cdn_domain;
+    
+    url = "//"+domain+"/api/file/" + filepickerId;
+  }
+  return url;
+});

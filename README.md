@@ -75,5 +75,37 @@ size an image, optionally returning url if `myImageId` is null
 
 All properties passed to the helper except for `placehold_it` and `placeholder_url` will be turned into a query string, so you can use the full options of the api (h, w, fit, format, quality, rotate, watermark, etc).
 
+-----
+
+You can use this in an image tag
+```
+<img src="{{filepickerIdToImageUrl myImageId h=400 w=400 align='faces' fit='crop'}}">
+```
+
+## Url Helper
+If you just want the url from a filepicker fileId, possibly for video tags or files to be downloaded
+
+```
+{{filepickerIdToUrl myFileId}}
+```
+this helper takes no options for conversion, but will still use the cdn setting if available
+
+
+```
+<a href="{{filepickerIdToUrl myFileId}}">Download File</a>
+```
+Open/Download a file
+You can use the filepicker export function instead if you want users to be able to save to social services
+
+
+```
+<video width="320" height="240" controls>
+  <source src="{{filepickerIdToUrl myFileId}}" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+```
+Embed an mp4 video
+
+
 ### Credits
 Forked from impicker
