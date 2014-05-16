@@ -20,8 +20,8 @@ mrt add filepicker-plus
 {
   "public" : {
     "filepicker":{
-      "key":"<YOUR API KEY>",
-      "cdn_domain":"<YOUR CDN DOMAIN>"
+      "key":"<YOUR API KEY, looks like xxxxxxxxxxxxxxxxx>",
+      "cdn_domain":"<YOUR CDN DOMAIN, looks like xxxxxxxxxxx.cloudfront.net>"
     }
   }
 }
