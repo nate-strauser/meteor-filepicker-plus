@@ -4,14 +4,9 @@ Package to use Filepicker in Meteor, loads on demand, optional callback.  See me
 
 ## How to install
 
-Install Meteorite (if not already installed)
-```
-npm install -g meteorite
-```
-
 Add package
 ```
-mrt add filepicker-plus
+meteor add filepicker-plus
 ```
 
 ## Using Meteor.settings

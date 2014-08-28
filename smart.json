@@ -1,9 +1,0 @@
-{
-  "name": "filepicker-plus",
-  "description": "ink filepicker script packaged for Meteor with helpers and utilities",
-  "homepage": "https://github.com/nate-strauser/meteor-filepicker-plus",
-  "author": "Nathan Strauser <nathan.strauser@gmail.com>",
-  "version": "1.2.1",
-  "git": "https://github.com/nate-strauser/meteor-filepicker-plus.git",
-  "packages": {}
-}
