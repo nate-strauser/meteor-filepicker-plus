@@ -41,7 +41,7 @@ loadFilePicker = function(key, callback){
 UI.registerHelper("filepickerIdToImageUrl", function(imageId, options) {
   var url = "";
   if(!imageId && options.hash.placehold_it){
-    url = "//placehold.it/"+options.hash.placehold_it; 
+    url = "http://placehold.it/"+options.hash.placehold_it; 
   }else if(!imageId && options.hash.placeholder_url){
     url = options.hash.placeholder_url; 
   }else if(imageId){

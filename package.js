@@ -1,7 +1,7 @@
 Package.describe({
   name:"natestrauser:filepicker-plus",
   summary: "ink filepicker script packaged for Meteor with helpers and utilities",
-  version: "1.2.2",
+  version: "1.2.3",
   git: "https://github.com/nate-strauser/meteor-filepicker-plus.git"
 });
 
