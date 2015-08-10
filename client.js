@@ -23,13 +23,13 @@ loadFilePicker = function(key, callback){
         // Generate a script tag
         var script = document.createElement("script");
         script.type = "text/javascript";
-        script.src = "//api.filepicker.io/v1/filepicker.js";
+        script.src = "//api.filepicker.io/v2/filepicker.js";
         script.onload = filepickerLoadCallback;
         script.onerror = filepickerErrorCallback;
 
         // Load the script tag
         document.getElementsByTagName('head')[0].appendChild(script);
-      
+
     }else{
       if(typeof console !== "undefined") {
         console.log("filepicker-plus - tried to load but key not supplied");
@@ -41,14 +41,14 @@ loadFilePicker = function(key, callback){
 UI.registerHelper("filepickerIdToImageUrl", function(imageId, options) {
   var url = "";
   if(!imageId && options.hash.placehold_it){
-    url = "http://placehold.it/"+options.hash.placehold_it; 
+    url = "http://placehold.it/"+options.hash.placehold_it;
   }else if(!imageId && options.hash.placeholder_url){
-    url = options.hash.placeholder_url; 
+    url = options.hash.placeholder_url;
   }else if(imageId){
     var domain = "www.filepicker.io";
     if(Meteor.settings && Meteor.settings.public && Meteor.settings.public.filepicker && Meteor.settings.public.filepicker.cdn_domain)
       domain = Meteor.settings.public.filepicker.cdn_domain;
-    
+
     url = "//"+domain+"/api/file/" + imageId;
     var convertOptions = _.omit(options.hash, ['placehold_it','placeholder_url']);
     if(_.keys(convertOptions).length > 0)
@@ -63,7 +63,7 @@ UI.registerHelper("filepickerIdToUrl", function(filepickerId) {
     var domain = "www.filepicker.io";
     if(Meteor.settings && Meteor.settings.public && Meteor.settings.public.filepicker && Meteor.settings.public.filepicker.cdn_domain)
       domain = Meteor.settings.public.filepicker.cdn_domain;
-    
+
     url = "//"+domain+"/api/file/" + filepickerId;
   }
   return url;
