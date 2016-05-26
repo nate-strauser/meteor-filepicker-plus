@@ -1,6 +1,7 @@
 loadFilePicker = function(key, callback){
   //todo - shift arguements to support just callback
   if(typeof filepicker === "undefined"){
+            // ^ where is filepicker defined?
     if(!key && Meteor.settings && Meteor.settings.public && Meteor.settings.public.filepicker && Meteor.settings.public.filepicker.key)
         key = Meteor.settings.public.filepicker.key;
 
